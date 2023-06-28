@@ -1,7 +1,7 @@
 ﻿
 namespace Debtors.Domain
 {
-    internal class Debtor
+    public class Debtor
     {
         public Guid UserId { get; set; }
         public Guid Id { get; set; }
