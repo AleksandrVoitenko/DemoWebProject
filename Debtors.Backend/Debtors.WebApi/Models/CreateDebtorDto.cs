@@ -4,7 +4,7 @@ using Debtors.Application.Debtors.Commands.CreateDebtors;
 
 namespace Debtors.WebApi.Models
 {
-    public class CreateNoteDto : IMapWith<CreateDebtorCommand>
+    public class CreateDebtorDto : IMapWith<CreateDebtorCommand>
     {
         public string DebtorName { get; set; }
         public string DebtorObject { get; set; }
@@ -13,7 +13,7 @@ namespace Debtors.WebApi.Models
 
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<CreateNoteDto, CreateDebtorCommand>()
+            profile.CreateMap<CreateDebtorDto, CreateDebtorCommand>()
                 .ForMember(debtorCommand => debtorCommand.DebtorName,
                 opt => opt.MapFrom(debtorDto => debtorDto.DebtorName))
                  .ForMember(debtorCommand => debtorCommand.DebtorObject,
