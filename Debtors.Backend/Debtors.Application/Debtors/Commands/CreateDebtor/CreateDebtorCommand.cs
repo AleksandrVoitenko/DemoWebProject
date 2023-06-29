@@ -8,5 +8,6 @@ namespace Debtors.Application.Debtors.Commands.CreateDebtors
         public string DebtorName { get; set; }
         public string DebtorObject { get; set; }
         public string? Description { get; set; }
+        public DateTime? RepaymentDate { get; set; }
     }
 }

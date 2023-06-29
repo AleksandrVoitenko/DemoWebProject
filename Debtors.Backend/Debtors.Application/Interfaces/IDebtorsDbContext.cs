@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Debtors.Domain;
+using Debtors.Domain.Entities;
 
 namespace Debtors.Application.Interfaces
 {

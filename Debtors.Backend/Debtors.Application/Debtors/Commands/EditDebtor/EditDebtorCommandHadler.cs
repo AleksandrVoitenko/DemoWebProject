@@ -1,16 +1,16 @@
 ﻿using Debtors.Application.Common.Exceptions;
 using Debtors.Application.Interfaces;
-using Debtors.Domain;
+using Debtors.Domain.Entities;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
 namespace Debtors.Application.Debtors.Commands.EditDebtor
 {
-    public class EditDebtorCommandHadle : IRequestHandler<EditDebtorCommand>
+    public class EditDebtorCommandHadler : IRequestHandler<EditDebtorCommand, Unit>
     {
         private readonly IDebtorsDbContext _dbContext;
 
-        public EditDebtorCommandHadle(IDebtorsDbContext dbContext) 
+        public EditDebtorCommandHadler(IDebtorsDbContext dbContext) 
         {
             _dbContext = dbContext;
         }
@@ -24,10 +24,16 @@ namespace Debtors.Application.Debtors.Commands.EditDebtor
             {
                 throw new NotFoundException(nameof(Debtor), request.Id);
             }
+            if(!entity.IsValied)
+            {
+                throw new UnavailableOperationException(nameof(Debtor), request.Id);
+            }
 
             entity.DebtorName = request.DebtorName;
             entity.DebtorObject = request.DebtorObject;
             entity.Description = request.Description;
+            entity.RepaymentDate = request.RepaymentDate;
+            entity.EditDate = DateTime.Now;
 
             await _dbContext.SaveChangesAsync(cancellationToken);
 

@@ -1,5 +1,6 @@
 ﻿using Debtors.Application.Interfaces;
 using Debtors.Domain;
+using Debtors.Domain.Entities;
 using MediatR;
 
 namespace Debtors.Application.Debtors.Commands.CreateDebtors
@@ -22,6 +23,7 @@ namespace Debtors.Application.Debtors.Commands.CreateDebtors
                 DebtorObject = request.DebtorObject,
                 Description = request.Description,
                 Id = Guid.NewGuid(),
+                RepaymentDate = request.RepaymentDate,
                 CreationDate = DateTime.Now,
                 EditDate = null,
                 IsValied = true
