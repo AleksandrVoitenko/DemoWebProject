@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Debtors.Domain;
-
+using Debtors.Domain.Entities;
 
 namespace Debtors.Persistence.EntityTypeConfiguration
 {

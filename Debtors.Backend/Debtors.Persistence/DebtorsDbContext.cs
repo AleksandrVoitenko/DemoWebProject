@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Debtors.Application.Interfaces;
-using Debtors.Domain;
 using Debtors.Persistence.EntityTypeConfiguration;
+using Debtors.Domain.Entities;
 
 namespace Debtors.Persistence
 {
